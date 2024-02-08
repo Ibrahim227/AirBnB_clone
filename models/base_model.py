@@ -14,4 +14,4 @@ class BaseModel:
 
     def save(self):
         """update datetime"""
-        return updated_at
+        return self.updated_at
