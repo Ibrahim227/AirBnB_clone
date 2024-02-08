@@ -9,8 +9,8 @@ class BaseModel:
     def __init__(self):
         """method to instantiate an instance of BaseMOdel"""
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        self.created_at = isoforma(datetime.now())
+        self.updated_at = isoformat(datetime.now())
 
     def save(self):
         """update datetime"""
@@ -18,4 +18,4 @@ class BaseModel:
 
     def to_dict(self):
         """return a dictionnary of keys/values"""
-        return self.__dict__
+        return BaseModel.__dict__
