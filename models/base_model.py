@@ -15,3 +15,7 @@ class BaseModel:
     def save(self):
         """update datetime"""
         return self.updated_at
+
+    def to_dict(self):
+        """return a dictionnary of keys/values"""
+        return self.__dict__
