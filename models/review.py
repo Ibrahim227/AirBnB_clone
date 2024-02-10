@@ -5,6 +5,7 @@ from base_model import BaseModel
 
 class Review(BaseModel):
     """class that inherit from BaseModel"""
-    def __init__(self):
-        """instantiate the contructor"""
-        pass
+    place_id: str = ""
+    user_id: str = ""
+    text: str = ""
+    super().__init__(self)
