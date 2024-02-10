@@ -19,7 +19,7 @@ class BaseModel:
                 if key == "created_at" or k == "updated_at":
                     self.__dict__[key] = datetime.sstrptime(value, dtnow)
                 else:
-                    self.__dictpvalue[key] = value
+                    self.__dict__[key] = value
         else:
             models.storage.new(self)
 
