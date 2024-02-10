@@ -5,6 +5,7 @@ from base_model import BaseModel
 
 class City(BaseModel):
     """class City that inherit from BaseModel"""
-    def __init__(self):
-        """instantiate a constructor"""
-        pass
+    state_id: str = ""
+    name: str = ""
+
+    super().__init__(self)
