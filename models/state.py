@@ -5,6 +5,5 @@ from base_model import BaseModel
 
 class State(BaseModel):
     """class that inherit fromBaseMOdel"""
-    def __init__(self):
-        """instantiate the constructor"""
-        pass
+    name = ""
+    super().__init__(self)
