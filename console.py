@@ -14,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_quit(self):
-        """handle the quit command"""
+        """quit command to exit the program"""
         pass
 
     def do_EOF(self):
