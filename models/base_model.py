@@ -25,7 +25,9 @@ class BaseModel:
 
     def save(self):
         """update datetime"""
-        return self.updated_at
+        self.updated_at = datetime.today()
+        models.storage.save()
+
 
     def to_dict(self):
         """return a dictionnary of keys/values"""
