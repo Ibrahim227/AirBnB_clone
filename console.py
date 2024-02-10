@@ -7,7 +7,7 @@ class HBNBCommand(cmd.Cmd):
     """Contains the entry point of the CLi"""
     prompt = '(hbnb)'
 
-    def do_help(self):
+    def do_help(self, arg):
         """Handle help command"""
         pass
 
