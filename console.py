@@ -5,6 +5,7 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     """Contains the entry point of the CLi"""
+    prompt = '(hbnb)'
     def __init__(self):
         """instantiate the class definition"""
         pass
