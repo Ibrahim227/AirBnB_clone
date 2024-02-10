@@ -31,8 +31,8 @@ class BaseModel:
     def to_dict(self):
         """return a dictionnary of keys/values"""
         rtdict = self.__dict__.copy()
-        rtdict["created_at"] = self.__dict__.created_at.isoformat()
-        rtdict["updated_at"] = self.__dict__.updated_at.isoformat()
+        rtdict["created_at"] = self.created_at.isoformat()
+        rtdict["updated_at"] = self.updated_at.isoformat()
         rtdict["__class__"] = self.__class__.__name__
         return rtdict
 
