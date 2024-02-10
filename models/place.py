@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """import required module"""
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class Place(BaseModel):
@@ -15,5 +15,4 @@ class Place(BaseModel):
     price_by_night: int = 0
     latitude: float = 0.0
     longitude: float = 0.0
-    amenety_ids: str = []
-    super().__init__(self)
+    amenity_ids: str = []
