@@ -16,8 +16,8 @@ class BaseModel:
 
         if len(kwargs) != 0:
             for key, value in kwargs.items():
-                if key == "created_at" or k == "updated_at":
-                    self.__dict__[key] = datetime.sstrptime(value, dtnow)
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value, dtnow)
                 else:
                     self.__dict__[key] = value
         else:
