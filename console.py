@@ -105,7 +105,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(disp_dict["{}.{}".format(arg0[0], arg0[1])])
 
-
     def do_destroy(self, arg):
         """Deletes an instance and save the change to JSON file"""
         arg0 = parse(arg)
@@ -189,7 +188,6 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[k] = v
         storage.save()
-
 
 
 if __name__ == "__main__":
