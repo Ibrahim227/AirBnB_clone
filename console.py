@@ -25,23 +25,23 @@ class HBNBCommand(cmd.Cmd):
         """End of file"""
         return True
 
-    def create(self, arg):
+    def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it to JSON"""
         pass
 
-    def show(self, arg):
+    def do_show(self, arg):
         """Prints the str representation of an instance"""
         pass
 
-    def destroy(self, arg):
+    def do_destroy(self, arg):
         """Deletes an instance and save the change to JSON file"""
         pass
 
-    def all(self, arg):
+    def do_all(self, arg):
         """Prints all str representations of all instances"""
         pass
 
-    def update(self, arg):
+    def do_update(self, arg):
         """Updates and instance by add/update attr, save change to JSON file"""
         pass
 
