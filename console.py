@@ -14,26 +14,59 @@ from models.base_model import BaseModel
 
 
 def parse(arg):
-    curly_braces = re.search(r"\{(.*?)\}", arg)
+    cbr = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
-    if curly_braces is None:
+    if cbr is None:
         if brackets is None:
             return [i.strip(",") for i in split(arg)]
         else:
-            lexer = split(arg[:brackets.span()[0]])
-            retl = [i.strip(",") for i in lexer]
+            le = split(arg[:brackets.span()[0]])
+            retl = [i.strip(",") for i in le]
             retl.append(brackets.group())
             return retl
     else:
-        lexer = split(arg[:curly_braces.span()[0]])
-        retl = [i.strip(",") for i in lexer]
-        retl.append(curly_braces.group())
+        le = split(arg[:curly_braces.span()[0]])
+        retl = [i.strip(",") for i in le]
+        retl.append(cbr.group())
         return retl
 
 
 class HBNBCommand(cmd.Cmd):
     """Contains the entry point of the CLi"""
-    prompt = '(hbnb)'
+    prompt = "(hbnb) "
+    __classes = {
+        "BaseModel",
+        "User",
+        "City",
+        "Place",
+        "Review",
+        "State",
+        "Amenity"
+    }
+    def emptyline(self):
+        """Do nothing until receive a Command"""
+        pass
+
+    def default(self, arg):
+        """Defaul behavior for The Cmd"""
+        default_dict = {
+            "all": self.do_all,
+            "show": self.so_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.update
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            argl = [arg[:match.span()[0]], arg[match.span()[1]:]]
+            match = re.search(r"\((.*?)\)", argl[1])
+            if match is not None:
+                command = [argl[1][:match.span()[0]], match.group()[1:-1]]
+                if command[0] in default_dict.keys():
+                    call = "{} {}".format(argl[0], command[1])
+                    return default_dict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
