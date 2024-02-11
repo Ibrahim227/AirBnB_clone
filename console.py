@@ -14,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """End of file"""
-        pass
+        return True
 
     def create(self, arg):
         """Creates a new instance of BaseModel, saves it to JSON"""
