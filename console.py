@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, arg):
-        """Creates a new instance of BaseModel, saves it to JSON"""
+        """Creates a new instance of BaseModel, saves it to JSON and prints id"""
         
 
     def do_show(self, arg):
