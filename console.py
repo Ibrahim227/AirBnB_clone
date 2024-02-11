@@ -43,6 +43,7 @@ class HBNBCommand(cmd.Cmd):
         "State",
         "Amenity"
     }
+
     def emptyline(self):
         """Do nothing until receive a Command"""
         pass
