@@ -10,7 +10,7 @@ from models.state import State
 from models.user import User
 from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
-
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it to JSON"""
-        pass
+        
 
     def do_show(self, arg):
         """Prints the str representation of an instance"""
