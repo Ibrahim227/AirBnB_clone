@@ -138,7 +138,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, arg):
         """retrieve the num of instances of a given class"""
-        pass
+        arg0 = parse(arg)
+        count = 0
+        for obj in storage.all().values():
+            if arg0[0] == obj.__class__.__name__:
+                count += 1
+        print(count)
 
     def do_update(self, arg):
         """Updates and instance by add/update attr, save change to JSON file"""
