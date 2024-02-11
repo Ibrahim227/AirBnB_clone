@@ -11,7 +11,7 @@ from models.user import User
 from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
-
+from models import storage
 
 def parse(arg):
     cbr = re.search(r"\{(.*?)\}", arg)
@@ -83,7 +83,11 @@ class HBNBCommand(cmd.Cmd):
         arg0 = parse(arg)
         if len(arg) == 0:
             print("** class name missing **")
-
+        elif arg0[0] not in HBNCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            print(eval(arg0[0]) ().id)
+            storage.save
     def do_show(self, arg):
         """Prints the str representation of an instance"""
         pass
