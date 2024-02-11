@@ -2,6 +2,15 @@
 """Import required modules"""
 import cmd
 import sys
+import models
+from models.review import Review
+from models.place import Place
+from models.city import City
+from models.state import State
+from models.user import User
+from models.amenity import Amenity
+from models.engine.file_storage import FileStorage
+
 
 
 class HBNBCommand(cmd.Cmd):
