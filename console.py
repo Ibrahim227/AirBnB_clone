@@ -147,7 +147,49 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """Updates and instance by add/update attr, save change to JSON file"""
-        pass
+        arg0 = parse(arg)
+        updobjdict = storage.all()
+
+        if len(arg0) == 0:
+            print("** class name missing **")
+            return False
+        if arg0[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        if len(arg0) == 1:
+            print("** instance id missing **")
+            return False
+        if "{}.{}".format(arg0[0], arg0[1]) not in updobjdict.keys():
+            print("** no instance found **")
+            return False
+        if len(arg0) == 2:
+            print("** attribute name missing **")
+            return False
+        if len(arg0) == 3:
+            try:
+                type(eval(arg0[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return False
+
+        if len(arg0) == 4:
+            obj = updobjdict["{}.{}".format(arg0[0], arg0[1])]
+            if arg0[2] in obj.__class__.__dict__.keys():
+                valtype = type(obj.__class__.__dict__[arg0[2]])
+                obj.__dict__[arg0[2]] = valtype(arg0[3])
+            else:
+                obj.__dict__[arg0[2]] = arg0[3]
+        elif type(eval(arg0[2])) == dict:
+            obj = updobjdict["{}.{}".format(arg0[0], arg0[1])]
+            for k, v in eval(arg0[2]).items():
+                if (k in obj.__class__.__dict__.keys() and
+                        type(obj.__class__.__dict__[k]) in {str, int, float}):
+                    valtype = type(obj.__class__.__dict__[k])
+                    obj.__dict__[k] = valtype(v)
+                else:
+                    obj.__dict__[k] = v
+        storage.save()
+
 
 
 if __name__ == "__main__":
