@@ -13,6 +13,7 @@ from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models import storage
 
+
 def parse(arg):
     cbr = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
@@ -86,8 +87,9 @@ class HBNBCommand(cmd.Cmd):
         elif arg0[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
-            print(eval(arg0[0]) ().id)
+            print(eval(arg0[0])().id)
             storage.save
+
     def do_show(self, arg):
         """Prints the str representation of an instance"""
         pass
