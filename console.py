@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
         """Defaul behavior for The Cmd"""
         default_dict = {
             "all": self.do_all,
-            "show": self.so_show,
+            "show": self.do_show,
             "destroy": self.do_destroy,
             "count": self.do_count,
             "update": self.update
