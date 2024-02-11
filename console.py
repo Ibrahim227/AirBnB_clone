@@ -25,7 +25,7 @@ def parse(arg):
             retl.append(brackets.group())
             return retl
     else:
-        le = split(arg[:curly_braces.span()[0]])
+        le = split(arg[:cbr.span()[0]])
         retl = [i.strip(",") for i in le]
         retl.append(cbr.group())
         return retl
@@ -80,6 +80,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it to JSON, prints id"""
+        arg0 = parse(arg)
+        if len(arg) == 0:
+            print("** class name missing **")
 
     def do_show(self, arg):
         """Prints the str representation of an instance"""
@@ -91,6 +94,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all str representations of all instances"""
+        pass
+
+    def do_count(self, arg):
+        """retrieve the num of instances of a given class"""
         pass
 
     def do_update(self, arg):
