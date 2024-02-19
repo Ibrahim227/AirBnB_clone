@@ -2,9 +2,11 @@
             background-color: white;
             height: 70px;
             width: 100%;
+	    border-bottom: 1px;
+	    display: flex;
+	    align-items: center;
 }
 
-.back-image {
-	border-bottom: 1px #CCCCCC;
-	background-image: url('../images/logo.png');
+.header-image {
+	margin-left: 20px;
 }
